@@ -1,0 +1,15 @@
+name: Matrix Demo
+
+on: [workflow_dispatch]
+
+jobs:
+  matrix-demo:
+    name: Matrix Demo
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chrome, firefox, safari]
+        connection: [4G, 5G, 6G]
+    steps:
+      - run: echo "Browser ${{ matrix.browser }}"
+      - run: echo "Conection ${{ matrix.connection }}"

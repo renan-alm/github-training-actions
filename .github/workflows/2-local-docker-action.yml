@@ -1,0 +1,35 @@
+name: 02 - CI Build for Docker Action
+on:
+  push:
+    branches: [ main ]
+    paths: [ hello-world-docker-action/** ]
+  workflow_dispatch:
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run my own container action
+        id: hello-action
+        uses: ./.github/actions/hello-world-action
+        with:
+          who-to-greet: '@renan-alm'
+
+      - name: Output time set in the container
+        run: echo "The time was ${{ steps.hello-action.outputs.time }} when the action said hello"
+        
+      - name: Write Summary Output
+        run: | 
+          echo "## Demo Summary Output :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "The `time` from out custom action is ${{ steps.hello-action.outputs.time }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Export Step Summary
+        uses: austenstone/job-summary@v2.0
+        id: job-summary
+        with:
+          create-pdf: false
+      
+      - run: echo "${{ steps.job-summary.outputs.job-summary }}"
