@@ -13,7 +13,8 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🏗️ Building..."
+      - name: Dummy build
+        run: echo "🏗️ Building..."
 
   Test:
     runs-on: ubuntu-latest
