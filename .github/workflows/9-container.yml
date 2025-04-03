@@ -6,7 +6,7 @@ on:
     branches:
       - main
 
-run-name: "Container workflow via ${{ github.event_name }} by ${{ github.actor }}"
+run-name: "09 - Container workflow via ${{ github.event_name }} by ${{ github.actor }}"
 
 jobs:
   container-job:
@@ -37,5 +37,4 @@ jobs:
           dotnet run
       - name: Run other commands
         run: |
-          echo "Running other commands in container"
-          Get-ChildItem
+          pwsh -c "echo Hello from PowerShell"
