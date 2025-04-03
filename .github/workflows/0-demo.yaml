@@ -1,9 +1,9 @@
 name: 00 - Workflow Demo
 
 on: 
-  push:
-    # branches: [ main ]
-    paths: [ .github/workflows/0-demo.yaml ]
+  # push:
+  #   branches: [ main ]
+  #   paths: [ .github/workflows/0-demo.yaml ]
   workflow_dispatch:
   pull_request:
     branches: "main"

@@ -30,8 +30,12 @@ jobs:
         run: |
           echo "Running .NET command in container"
           dotnet --version
-          dir
+          Get-ChildItem
           dotnet new console -o HelloWorld
           cd HelloWorld
           dotnet build
           dotnet run
+      - name: Run other commands
+        run: |
+          echo "Running other commands in container"
+          Get-ChildItem
