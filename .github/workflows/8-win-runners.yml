@@ -1,4 +1,4 @@
-name: MSBuild on Windows
+name: 08 - MSBuild on Windows
 
 on:
   workflow_dispatch:
