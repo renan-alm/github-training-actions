@@ -3,7 +3,7 @@ name: 07 - Cache Demo
 on: [workflow_dispatch, push]
 
 jobs:
-  cache:
+  cache-job:
     name: Demo Cache
     runs-on: ubuntu-latest
     steps:
@@ -14,13 +14,12 @@ jobs:
         uses: actions/cache@v4.2.0
         id: cache
         with:
-          path: cache-demo
+          path: cache-file
           key: ${{ runner.os }}-cache-demo
 
       - name: Generate Cache
         if: ${{ steps.cache.outputs.cache-hit == false }}
-        run: echo "1 2 3..." > cache
+        run: echo "1 2 3..." > cache-file
 
       - name: Use Cache
-        run: cat cache
-        
+        run: cat cache-file
