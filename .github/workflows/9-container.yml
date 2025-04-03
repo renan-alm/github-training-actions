@@ -2,18 +2,21 @@ name: 09 - Container Demo
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
 
 run-name: "Container workflow via ${{ github.event_name }} by ${{ github.actor }}"
 
 jobs:
-  build:
+  container-job:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/dotnet/sdk:8.0
       options: --user root
+      volumes:
+        - /tmp:/tmp
+        - /var/run/docker.sock:/var/run/docker.sock
       env:
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
@@ -23,5 +26,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v2.0.0
+      - name: Run .NET command
+        run: |
+          echo "Running .NET command in container"
+          dotnet --version
+          dotnet new console -o HelloWorld
+          cd HelloWorld
+          dotnet build
+          dotnet run
