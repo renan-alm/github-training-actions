@@ -1,8 +1,8 @@
-name: 00 - Workflow demo
+name: 00 - Workflow Demo
 
 on: 
   push:
-    branches: [ main ]
+    # branches: [ main ]
     paths: [ .github/workflows/0-demo.yaml ]
   workflow_dispatch:
   pull_request:
@@ -10,7 +10,7 @@ on:
   schedule:
     - cron: "15 6 * * *"
 
-run-name: "Demo workflow via ${{ github.event_name }} by ${{ github.actor }}"
+run-name: "00 - Workflow Demo via ${{ github.event_name }} by ${{ github.actor }}"
 
 jobs:
   Build:
