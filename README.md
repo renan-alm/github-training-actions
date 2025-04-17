@@ -55,6 +55,6 @@ Please follow [these instructions](GettingReady.md) and make sure you have set u
 - [ ] Best practices and security
 
 
-## Cheat Sheet
+## Cheat Sheet !!!
 Find common terminology for reference [here](./CheatSheet.md)
 
