@@ -1,5 +1,5 @@
 #!/bin/sh -l
 
-echo "hello $1"
+echo "🎉 Hello $1! This greeting comes from the Docker action!"
 
 echo "time=$(date)" >> $GITHUB_OUTPUT
