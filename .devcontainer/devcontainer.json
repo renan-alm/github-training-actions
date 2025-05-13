@@ -1,29 +1,68 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/javascript-node
 {
-	"name": "Node.js",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 16, 14, 12.
-		// Append -bullseye or -buster to pin to an OS version.
-		// Use -bullseye variants on local arm64/Apple Silicon.
-		"args": {
-			"VARIANT": "16-bullseye"
+	"name": "GH-Training-Node.js",
+	// "image": "mcr.microsoft.com/devcontainers/javascript-node:20", // Latest LTS Node.js
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"username": "node",
+			"upgradePackages": "true"
+		},
+		"ghcr.io/devcontainers/features/go:1": {
+			"version": "1.18"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "none"  // Not needed since we're using Node.js base image
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest",
+			"ppa": "false"
 		}
 	},
-	// Set *default* container specific settings.json values on container create.
-	"settings": {},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"dbaeumer.vscode-eslint"
-	],
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+			"vscode": {
+				"extensions": [
+					"GitHub.copilot",
+					"GitHub.copilot-chat",
+					"DavidAnson.vscode-markdownlint",
+					"dbaeumer.vscode-eslint",
+					"PKief.material-icon-theme",
+					"DeepakPahawa.flowbookmark"
+				],
+				"settings": {
+					"github.copilot.chat.codeGeneration.instructions": [
+						{
+							"text": "Keep answerers short and to the point, unless said otherwise."
+						}
+					],
+					"github.copilot.enable": {
+						"*": true,
+						"plaintext": true,
+						"markdown": true,
+						"scminput": false,
+						"yaml": true
+					},
+					"github.copilot.chat.reviewSelection.instructions": [
+						{
+							"file": ".vscode/copilot-instructions.md"
+						}
+					],
+					"github.copilot.chat.codeGeneration.enable": true
+				}
+			}
+	},
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node",
-	"features": {
-		"github-cli": "latest"
-	}
+	// "postCreateCommand": "git submodule update --init --recursive --depth 1"
+	
+	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
 }
