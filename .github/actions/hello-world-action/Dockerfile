@@ -4,4 +4,6 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh", "$1"]
+# Docker handles passing the arguments automatically
+# No need to send the input arguments to the entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
