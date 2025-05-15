@@ -1,4 +1,4 @@
-# Lab 5: Creating a JavaScript Action 🚀
+# 🔨 Hands-on: Creating a JavaScript Action  🚀
 
 ## Overview
 
@@ -19,7 +19,11 @@ In this lab, you'll learn how to create a JavaScript-based GitHub Action. We'll 
 
 ## Tasks / Challenges
 
-0. Call the Action in an existing workflow
+### Preparation:
+- Fork or create a new repository using the template [js-action-demo](https://github.com/renan-alm/js-action-demo)
+- Call the Action in an existing workflow.
+
+### Tasks:
 
 1. Environment Variables - Challenge Modify `index.js` and `action.yml` to:
     - Add support for environment variables
@@ -29,7 +33,6 @@ In this lab, you'll learn how to create a JavaScript-based GitHub Action. We'll 
 2. Matrix Strategy Challenge:
     - Create a workflow that runs the action with different inputs
     - Test the action across multiple Node.js versions
-    - Generate a compatibility report
 
 3. Extra: Create a Composite Action that uses this action. 
     - Example: Steps to run a script and call greetings-action
