@@ -21,6 +21,8 @@ jobs:
 
       - name: Run external JS Action
         uses: renan-alm/js-action-demo@v0.2.0
+        with:
+          user-name: ${{ github.actor }}
 
       - name: Workflow Summary
         run: |
@@ -33,4 +35,4 @@ jobs:
           echo "##[debug]This is a debug message." >> summary.md
           cat summary.md >> $GITHUB_STEP_SUMMARY
 
-          
+
