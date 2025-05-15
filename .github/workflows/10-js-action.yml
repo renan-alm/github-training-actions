@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run external JS Action
-        uses: renan-alm/js-action-demo@v0.2.0
+        uses: renan-alm/js-action-demo@main
         with:
           user-name: ${{ github.actor }}
 
