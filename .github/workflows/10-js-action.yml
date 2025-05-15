@@ -26,13 +26,16 @@ jobs:
 
       - name: Workflow Summary
         run: |
-          echo "##[group]Workflow Summary" >> summary.md
+          echo "# Workflow Summary" >> summary.md
+          echo "" >> summary.md
+          echo "## Results" >> summary.md
           echo "This is a summary of the workflow run." >> summary.md
-          echo "##[endgroup]" >> summary.md
-          echo "##[notice]This is a notice message." >> summary.md
-          echo "##[warning]This is a warning message." >> summary.md
-          echo "##[error]This is an error message." >> summary.md
-          echo "##[debug]This is a debug message." >> summary.md
+          echo "" >> summary.md
+          echo "## Status Messages" >> summary.md
+          echo "✨ **Notice:** This is a notice message" >> summary.md
+          echo "⚠️ **Warning:** This is a warning message" >> summary.md
+          echo "❌ **Error:** This is an error message" >> summary.md
+          echo "🔍 **Debug:** This is a debug message" >> summary.md
           cat summary.md >> $GITHUB_STEP_SUMMARY
 
 
