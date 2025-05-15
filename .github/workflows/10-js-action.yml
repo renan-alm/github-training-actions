@@ -1,0 +1,36 @@
+name: 10 - JS Demo
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+run-name: "10 - JS Demo via ${{ github.event_name }} by ${{ github.actor }}"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  consume-js-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run external JS Action
+        uses: renan-alm/js-action-demo@v0.2.0
+
+      - name: Workflow Summary
+        run: |
+          echo "##[group]Workflow Summary" >> summary.md
+          echo "This is a summary of the workflow run." >> summary.md
+          echo "##[endgroup]" >> summary.md
+          echo "##[notice]This is a notice message." >> summary.md
+          echo "##[warning]This is a warning message." >> summary.md
+          echo "##[error]This is an error message." >> summary.md
+          echo "##[debug]This is a debug message." >> summary.md
+          cat summary.md >> $GITHUB_STEP_SUMMARY
+
+          
