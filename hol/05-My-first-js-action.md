@@ -13,8 +13,7 @@ In this lab, you'll learn how to create a JavaScript-based GitHub Action. We'll 
 
 ## Prerequisites
 
-- Basic JavaScript knowledge
-- Node.js installed on your machine
+- Basic JavaScript knowledge (Or Copilot to help you along the way)
 - GitHub account with repository access
 
 ## Tasks / Challenges
