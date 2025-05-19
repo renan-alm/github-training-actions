@@ -25,8 +25,8 @@ In this lab, you'll learn how to create a JavaScript-based GitHub Action. We'll 
 ### Tasks:
 
 1. Environment Variables - Challenge Modify `index.js` and `action.yml` to:
-    - Add support for environment variables
-    - Make the greeting format configurable through env vars
+    - Add support for environment variables (instead of using input variables)
+    - Make the greeting format configurable through env vars (apply logic using context variables)
     - Add input validation and custom error messages
 
 2. Matrix Strategy Challenge:
