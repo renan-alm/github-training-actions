@@ -1,6 +1,6 @@
 name: Demo SwedBank
 
-on: [push]
+on: [push,workflow_dispatch]
 
 permissions: read-all
 
