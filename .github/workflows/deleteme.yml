@@ -1,0 +1,12 @@
+name: Demo SwedBank
+
+on: [push]
+
+permissions: read-all
+
+jobs:
+  whatever:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ls -la 
